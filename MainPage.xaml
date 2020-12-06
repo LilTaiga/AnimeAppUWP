@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="AnimeAppUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AnimeAppUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel HorizontalAlignment="Center"
+                   VerticalAlignment="Center">
+        <TextBlock x:Name="AnilistTextBlock"
+                   Text="Enter Anilist user:"
+                   FontSize="24"
+                   
+                   RelativePanel.AlignTopWithPanel="True"
+                   RelativePanel.AlignLeftWithPanel="True"/>
+        <TextBox x:Name="AnilistTextBox"
+                 RelativePanel.Below="AnilistTextBlock"
+                 RelativePanel.AlignLeftWithPanel="True"
+                 
+                 Width="250"
+                 FontSize="24"
+                 CornerRadius="2"
+                 GettingFocus="AnilistTextBox_GettingFocus"/>
+        <Button x:Name="AnilistSubmitButton"
+                RelativePanel.AlignLeftWithPanel="True"
+                RelativePanel.Below="AnilistTextBox"
+                
+                Margin="0, 10, 0, 0"
+                Content="Submit"
+                CornerRadius="2"
+                Click="AnilistSubmitButton_Click"/>
+
+        <ProgressRing x:Name="AnilistProgressRing"
+                      RelativePanel.RightOf="AnilistTextBox"
+                      RelativePanel.AlignVerticalCenterWith="AnilistTextBox"
+                      
+                      Margin="30, 0, 0, 0"
+                      FontSize="24"
+                      IsEnabled="True"
+                      IsActive="False"/>
+
+        <TextBlock x:Name="AnilistNotFoundText"
+                   RelativePanel.AlignVerticalCenterWith="AnilistTextBox"
+                   RelativePanel.RightOf="AnilistTextBox"
+                   
+                   Margin="30, 0, 0, 0"
+                   Foreground="DarkRed"
+                   FontSize="24"/>
+    </RelativePanel>
+</Page>

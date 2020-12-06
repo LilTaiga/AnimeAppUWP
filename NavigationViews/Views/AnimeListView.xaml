@@ -1,0 +1,125 @@
+﻿<Page
+    x:Class="AnimeAppUWP.NavigationViews.Views.AnimeListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AnimeAppUWP.NavigationViews.Views"
+    xmlns:data="using:AnimeAppUWP.Anilist"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style x:Key="AddOrSubtract" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Page.Resources>
+
+    <ListView x:Name="EntriesList"
+              ItemsSource="{x:Bind UserEntries}">
+        <ListView.HeaderTemplate>
+            <DataTemplate>
+                <Grid Background="{ThemeResource SystemBaseLowColor}"
+                      Padding="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0"
+                               Text="Cover"/>
+
+                    <TextBlock Grid.Column="1"
+                               Text="Title"
+                               TextAlignment="Left"/>
+
+                    <TextBlock Grid.Column="2"
+                               Text="Genres"
+                               TextAlignment="Left"/>
+
+                    <TextBlock Grid.Column="3"
+                               Text="Progress"
+                               TextAlignment="Left"/>
+                </Grid>
+            </DataTemplate>
+        </ListView.HeaderTemplate>
+
+        <ListView.ItemContainerStyle>
+            <Style TargetType="ListViewItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            </Style>
+        </ListView.ItemContainerStyle>
+
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="data:Entry">
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Width="50"
+                           Source="{x:Bind EntryCoverMedium}"
+                           
+                           Grid.Column="0"
+                           
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           Margin="5"/>
+                    <TextBlock Text="{x:Bind EntryTitle}"
+                               
+                               Grid.Column="1"
+                               VerticalAlignment="Center"
+                               FontSize="18"
+                               TextWrapping="WrapWholeWords"/>
+
+                    <TextBlock Text="{x:Bind EntryGenresSingleString}"
+                               
+                               Grid.Column="2"
+                               VerticalAlignment="Center"
+                               FontSize="18"
+                               TextWrapping="WrapWholeWords"/>
+
+                    <StackPanel Grid.Column="3"
+                                Orientation="Horizontal">
+                        <Button Style="{StaticResource AddOrSubtract}">
+                            <TextBlock VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       Text="&#xE949;"/>
+                        </Button>
+
+                        <StackPanel Orientation="Vertical"
+                                    VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+                                <TextBlock Text="{x:Bind progress}"/>
+                                <TextBlock Text="/"/>
+                                <TextBlock Text="{x:Bind media.episodes}"/>
+                            </StackPanel>
+                            <ProgressBar Width="100"
+                        
+                                         Minimum="0"
+                                         Maximum="{x:Bind (x:Int32)media.episodes}"
+                                         Value="{x:Bind progress}"
+                                     
+                                         Margin="5"
+                                         CornerRadius="2"/>
+                        </StackPanel>
+
+                        <Button Style="{StaticResource AddOrSubtract}">
+                            <TextBlock VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       FontFamily="Segoe MDL2 Assets"
+                                       Text="&#xE948;"/>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</Page>

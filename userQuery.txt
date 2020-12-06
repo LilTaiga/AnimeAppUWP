@@ -1,0 +1,13 @@
+﻿query ($name: String)
+{
+  User(name: $name)
+  {
+    name
+    id
+    avatar
+    {
+      medium
+      large
+    }
+  }
+}

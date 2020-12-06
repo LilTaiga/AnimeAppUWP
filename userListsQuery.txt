@@ -1,0 +1,387 @@
+﻿query ($id: Int)
+{
+  AnimeWatchingList: MediaListCollection(userId: $id, type: ANIME, status: CURRENT) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  AnimePlanningList: MediaListCollection(userId: $id, type: ANIME, status: PLANNING) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  AnimeCompletedList: MediaListCollection(userId: $id, type: ANIME, status: COMPLETED) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  AnimeDroppedList: MediaListCollection(userId: $id, type: ANIME, status: DROPPED) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  AnimePausedList: MediaListCollection(userId: $id, type: ANIME, status: PAUSED) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  AnimeRewatchingList: MediaListCollection(userId: $id, type: ANIME, status: REPEATING) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  MangaReadingList: MediaListCollection(userId: $id, type: MANGA, status: CURRENT) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  MangaPlanningList: MediaListCollection(userId: $id, type: MANGA, status: PLANNING) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  MangaCompletedList: MediaListCollection(userId: $id, type: MANGA, status: COMPLETED) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  MangaDroppedList: MediaListCollection(userId: $id, type: MANGA, status: DROPPED) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  MangaPausedList: MediaListCollection(userId: $id, type: MANGA, status: PAUSED) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+  MangaRereadingList: MediaListCollection(userId: $id, type: MANGA, status: REPEATING) 
+  {
+	lists
+    {
+      name
+      status
+      entries
+      {
+		score
+        progress
+    	media
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          episodes
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+          
+          genres
+        }
+      }
+    }
+  }
+}
