@@ -8,8 +8,8 @@
 
   <Identity
     Name="df372f81-a580-4a34-8c71-27a8a9f422df"
-    Publisher="CN=lilta"
-    Version="1.0.0.0" />
+    Publisher="CN=LilTaiga"
+    Version="0.0.2.0" />
 
   <mp:PhoneIdentity PhoneProductId="df372f81-a580-4a34-8c71-27a8a9f422df" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

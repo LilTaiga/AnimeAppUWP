@@ -4,6 +4,8 @@ using Windows.Web.Http;
 using System;
 using System.IO;
 
+using AnimeAppUWP.Anilist.enums;
+
 using System.Security.Permissions;
 
 namespace AnimeAppUWP.Anilist
@@ -41,20 +43,20 @@ namespace AnimeAppUWP.Anilist
         }
 
         public Query(int _id)
-        {
+        { 
             try
             {
                 queryText = File.ReadAllText("userListsQuery.txt");
-
-                query = queryText;
-
-                variables = new Variables();
-                variables.id = _id;
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
+
+            query = queryText;
+
+            variables = new Variables();
+            variables.id = _id;
         }
 
         public async Task<QueryResult> SendRequest()

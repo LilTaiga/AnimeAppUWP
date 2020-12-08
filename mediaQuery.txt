@@ -1,0 +1,88 @@
+﻿query($id: Int)
+{
+  Media(id: $id)
+  {
+    title
+    {
+      native
+      romaji
+      english
+    }
+    
+    synonyms
+    
+    description
+    startDate
+    {
+      year
+      month
+      day
+    }
+    endDate
+    {
+      year
+      month
+      day
+    }
+    
+    season
+    seasonYear
+    episodes
+    duration
+    
+    coverImage
+    {
+      extraLarge
+      large
+    }
+    
+    genres
+    
+    averageScore
+    meanScore
+    
+    tags 
+    {
+      name
+      rank
+      isGeneralSpoiler
+    }
+    
+    studios 
+    {
+      nodes
+      {
+        name
+        
+      }
+    }
+    
+    relations
+    {
+	  edges
+      {
+        relationType
+        node
+        {
+          title
+          {
+            english
+            romaji
+            native
+          }
+          
+          type
+          format
+          status
+          
+          coverImage
+          {
+            medium
+            large
+            extraLarge
+          }
+        }
+      }
+    }
+  }
+}

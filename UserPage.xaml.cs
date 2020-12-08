@@ -34,15 +34,14 @@ namespace AnimeAppUWP
             this.InitializeComponent();
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            profileData = new Data();
 
-            profileData.User = e.Parameter as User;
-            if (profileData.User == null)
+            profileData = e.Parameter as Data;
+            if (profileData == null)
             {
-                NavigationView_BackRequested(null, null);
+                Frame.Navigate(typeof(MainPage));
                 return;
             }
 
@@ -50,28 +49,22 @@ namespace AnimeAppUWP
             NavigationViewUsername.Text = profileData.User.name;
             NavigationViewAvatar.ImageSource = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(profileData.User.avatar.medium));
 
-            await DownloadAnimeList();
-            NavigateToView("WatchingView");
-        }
-
-        private async Task DownloadAnimeList()
-        {
-            var watchingQuery = new Query(profileData.User.id);
-            var result = await watchingQuery.SendRequest();
-
-            profileData.AnimeWatchingList = result.data.AnimeWatchingList;
+            /*profileData.AnimeWatchingList = e.Parameter..AnimeWatchingList;
             profileData.AnimeRewatchingList = result.data.AnimeRewatchingList;
             profileData.AnimePlanningList = result.data.AnimePlanningList;
             profileData.AnimeCompletedList = result.data.AnimeCompletedList;
             profileData.AnimePausedList = result.data.AnimePausedList;
-            profileData.AnimeDroppedList = result.data.AnimeDroppedList;
+            profileData.AnimeDroppedList = result.data.AnimeDroppedList;*/
 
-            profileData.MangaReadingList = result.data.MangaReadingList;
+            /*profileData.MangaReadingList = result.data.MangaReadingList;
             profileData.MangaRereadingList = result.data.MangaRereadingList;
             profileData.MangaPlanningList = result.data.MangaPlanningList;
             profileData.MangaCompletedList = result.data.AnimeCompletedList;
             profileData.MangaPausedList = result.data.MangaPausedList;
-            profileData.MangaDroppedList = result.data.MangaDroppedList;
+            profileData.MangaDroppedList = result.data.MangaDroppedList;*/
+
+            NavigateToView("WatchingView");
+            NavigationView.SelectedItem = NavigationView.MenuItems[1];
         }
 
         private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)

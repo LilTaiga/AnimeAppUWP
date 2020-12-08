@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 using AnimeAppUWP.Anilist;
+using AnimeAppUWP.Dialogs;
 using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -61,6 +62,15 @@ namespace AnimeAppUWP.NavigationViews.Views
             userEntries.Sort();
             foreach (Entry _entry in userEntries)
                 UserEntries.Add(_entry);
+        }
+
+        private async void EntriesList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Entry _entry = e.ClickedItem as Entry;
+
+            EntryInformation _selected = new EntryInformation(_entry.media);
+
+            await _selected.ShowAsync();
         }
     }
 }

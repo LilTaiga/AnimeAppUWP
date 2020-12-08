@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using System.Text.Json;
 
 using AnimeAppUWP.Anilist;
+using AnimeAppUWP.Dialogs;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -30,7 +31,6 @@ namespace AnimeAppUWP
         {
             this.InitializeComponent();
         }
-
         private async void AnilistSubmitButton_Click(object sender, RoutedEventArgs e)
         {
             AnilistProgressRing.IsActive = true;
@@ -45,7 +45,7 @@ namespace AnimeAppUWP
                 Query userQuery = new Query(AnilistTextBox.Text);
                 QueryResult userResult = await userQuery.SendRequest();
 
-                Frame.Navigate(typeof(UserPage), userResult.data.User);
+                Frame.Navigate(typeof(UserPageLoading), userResult.data.User);
             }
             catch
             {

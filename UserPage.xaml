@@ -32,7 +32,8 @@
                 </NavigationViewItem>
 
                 <NavigationViewItem Tag="MangaListView"
-                                    Content="Manga List">
+                                    Content="Manga List"
+                                    IsEnabled="False">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE736;" FontFamily="Segoe MDL2 Assets"/>
                     </NavigationViewItem.Icon>

@@ -1,0 +1,161 @@
+﻿<Page
+    x:Class="AnimeAppUWP.Dialogs.Views.InformationView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AnimeAppUWP.Dialogs.Views"
+    xmlns:data="using:AnimeAppUWP.Anilist"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Style TargetType="ListView">
+            <Setter Property="SelectionMode" Value="None"/>
+        </Style>
+        <Style TargetType="ListViewItem">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="MinHeight" Value="0"/>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer>
+        <Grid Padding="0, 0, 25, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="EntryImage"
+                       Width="100"
+                       Grid.Column="0"
+                       Grid.Row="0"
+                       Grid.RowSpan="2"
+               
+                       Margin="12"
+                       Source="{x:Bind data.coverImage.large}"/>
+
+                <StackPanel Spacing="25">
+                    <StackPanel Grid.Column="1"
+                                Grid.Row="0">
+
+                        <TextBlock FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Text="Titles:"/>
+
+                        <TextBlock Text="{x:Bind data.GetAllTitles()}"/>
+                    </StackPanel>
+
+                    <StackPanel x:Name="EntryAltTitles"
+                                Grid.Column="1"
+                                Grid.Row="1">
+
+                        <TextBlock FontSize="14"
+                                   FontWeight="SemiBold"
+                                   Text="Alternative Titles:"/>
+
+                        <TextBlock Text="{x:Bind data.GetAllAlternativeTitles()}"/>
+
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        BorderBrush="Gray"
+                        BorderThickness="0, 0, 0, 1">
+                    <TextBlock Text="Details"
+                               FontSize="24"
+                               FontWeight="Bold"/>
+                </Border>
+
+                <StackPanel Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3">
+
+                    <TextBlock Text="Description"
+                               FontWeight="Medium"
+                               FontSize="18"/>
+                    <TextBlock x:Name="EntryDescription"
+                               TextWrapping="WrapWholeWords"
+                               Text="{x:Bind data.GetDescription()}"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="3"
+                            Grid.Column="0">
+                    <TextBlock Text="Genres"
+                               FontWeight="SemiBold"
+                               FontSize="18"/>
+                    <TextBlock Text="{x:Bind data.GetGenresListAsString()}"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="3"
+                            Grid.Column="1">
+                    <TextBlock Text="Episodes"
+                               FontWeight="SemiBold"
+                               FontSize="18"/>
+                    <TextBlock Text="{x:Bind data.GetEpisodesAndDuration()}"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="3"
+                            Grid.Column="2">
+                    <TextBlock Text="Studios"
+                               FontWeight="SemiBold"
+                               FontSize="18"/>
+                    <TextBlock Text="{x:Bind data.GetStudiosListAsString()}"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="5"
+                                Grid.Column="0">
+                    <TextBlock Text="Start Date"
+                               FontWeight="SemiBold"
+                             FontSize="18"/>
+                    <TextBlock Text="{x:Bind data.GetStartDateAsString()}"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="5"
+                                Grid.Column="1">
+                    <TextBlock Text="End Date"
+                                    FontWeight="SemiBold"
+                                    FontSize="18"/>
+                    <TextBlock Text="{x:Bind data.GetEndDateAsString()}"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="5"
+                                Grid.Column="2">
+                    <TextBlock Text="Season"
+                                    FontWeight="SemiBold"
+                                    FontSize="18"/>
+                    <TextBlock Text="{x:Bind data.GetSeasonAsString()}"/>
+
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Page>

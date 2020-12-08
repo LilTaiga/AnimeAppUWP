@@ -2,384 +2,123 @@
 {
   AnimeWatchingList: MediaListCollection(userId: $id, type: ANIME, status: CURRENT) 
   {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
-        {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
-        }
-      }
-    }
+		...Lists
   }
   AnimePlanningList: MediaListCollection(userId: $id, type: ANIME, status: PLANNING) 
   {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
-        {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
-        }
-      }
-    }
+		...Lists
   }
   AnimeCompletedList: MediaListCollection(userId: $id, type: ANIME, status: COMPLETED) 
   {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
-        {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
-        }
-      }
-    }
+		...Lists
   }
   AnimeDroppedList: MediaListCollection(userId: $id, type: ANIME, status: DROPPED) 
   {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
-        {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
-        }
-      }
-    }
+		...Lists
   }
   AnimePausedList: MediaListCollection(userId: $id, type: ANIME, status: PAUSED) 
   {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
-        {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
-        }
-      }
-    }
+		...Lists
   }
   AnimeRewatchingList: MediaListCollection(userId: $id, type: ANIME, status: REPEATING) 
   {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
-        {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
-        }
-      }
-    }
+		...Lists
   }
-  MangaReadingList: MediaListCollection(userId: $id, type: MANGA, status: CURRENT) 
+}
+
+fragment Lists on MediaListCollection
+{
+  lists
   {
-	lists
+    name
+    status
+    entries
     {
-      name
-      status
-      entries
+      score
+      progress
+      media
       {
-		score
-        progress
-    	media
+        title
         {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
+          native
+          romaji
+          english
         }
-      }
-    }
-  }
-  MangaPlanningList: MediaListCollection(userId: $id, type: MANGA, status: PLANNING) 
-  {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
+
+        synonyms
+
+        description
+        startDate
         {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
+          year
+          month
+          day
         }
-      }
-    }
-  }
-  MangaCompletedList: MediaListCollection(userId: $id, type: MANGA, status: COMPLETED) 
-  {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
+        endDate
         {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
+          year
+          month
+          day
         }
-      }
-    }
-  }
-  MangaDroppedList: MediaListCollection(userId: $id, type: MANGA, status: DROPPED) 
-  {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
+
+        season
+        seasonYear
+        episodes
+        duration
+
+        coverImage
         {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
+          extraLarge
+          large
+          medium
         }
-      }
-    }
-  }
-  MangaPausedList: MediaListCollection(userId: $id, type: MANGA, status: PAUSED) 
-  {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
+
+        genres
+
+        averageScore
+        meanScore
+
+        tags 
         {
-          title
-          {
-            english
-            romaji
-            native
-          }
-          
-          episodes
-          coverImage
-          {
-            medium
-            large
-            extraLarge
-          }
-          
-          genres
+          name
+          rank
+          isGeneralSpoiler
         }
-      }
-    }
-  }
-  MangaRereadingList: MediaListCollection(userId: $id, type: MANGA, status: REPEATING) 
-  {
-	lists
-    {
-      name
-      status
-      entries
-      {
-		score
-        progress
-    	media
+
+        studios 
         {
-          title
+          nodes
           {
-            english
-            romaji
-            native
+            name
           }
-          
-          episodes
-          coverImage
+        }
+
+        relations
+        {
+        edges
           {
-            medium
-            large
-            extraLarge
+            relationType
+            node
+            {
+              title
+              {
+                english
+                romaji
+                native
+              }
+
+              type
+              format
+              status
+
+              coverImage
+              {
+                medium
+                large
+                extraLarge
+              }
+            }
           }
-          
-          genres
         }
       }
     }
